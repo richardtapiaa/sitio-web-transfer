@@ -22,7 +22,7 @@ interface Props {
 
 const { 
 	title, 
-	description = "Transporte Eliud — traslados seguros y puntuales. Reserva microbuses, buses y transporte privado para viajes y eventos. Atención personalizada y cobertura amplia.", 
+	description = "Transfer Eliud — traslados privados y puntuales en Costa Rica. Reserva microbuses modernos para tu comodidad y tranquilidad.", 
 	image = logoEliud.src,
   lang = "es"
 } = Astro.props;
@@ -32,16 +32,16 @@ const {
 const schema = {
 	"@context": "https://schema.org",
 	"@type": "TransportService",
-	"name": "Transporte Eliud",
+	"name": "Transfer Eliud",
 	"image": new URL(logoEliud.src, Astro.site),
-	"url": "https://transporteeliud.com",
-	"telephone": "+50640001040",
+	"url": "https://transfer-eliud.com",
+	"telephone": "+50684128671",
 	"address": {
 		"@type": "PostalAddress",
-		"streetAddress": "Alajuela",
-		"addressLocality": "Alajuela",
-		"addressRegion": "Alajuela",
-		"postalCode": "20101",
+		"streetAddress": "Quepos",
+		"addressLocality": "Quepos",
+		"addressRegion": "Puntarenas",
+		"postalCode": "60601",
 		"addressCountry": "CR"
 	},
 	"priceRange": "$$",
@@ -60,8 +60,8 @@ const schema = {
 		"closes": "23:59"
 	},
 	"sameAs": [
-		"https://facebook.com/transporteeliud",
-		"https://instagram.com/transporteeliud"
+		"https://facebook.com/transfereliud",
+		"https://instagram.com/transfereliud"
 	]
 };
 ---
@@ -73,7 +73,7 @@ const schema = {
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<meta name="theme-color" content="#8BC34A" />
 		<meta name="robots" content="index, follow" />
-		<meta name="author" content="Transporte Eliud" />
+		<meta name="author" content="Transfer Eliud" />
 		<meta name="language" content={lang} />
 		<meta name="format-detection" content="telephone=yes" />
 		<meta name="referrer" content="no-referrer-when-downgrade" />
@@ -86,7 +86,7 @@ const schema = {
 		<!-- Dynamic SEO Props -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content="transporte, traslados, microbuses, buses, reservas, transporte privado, Costa Rica" />
+		<meta name="keywords" content="transfer eliud, transporte costa rica, traslados costa rica, transfer costa rica, microbuses costa rica, buses privados, transporte privado costa rica, reservas transporte, transfer aeropuerto costa rica, traslados turísticos" />
 		
 		<!-- Canonical URL -->
 		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
@@ -97,7 +97,7 @@ const schema = {
 		<link rel="alternate" hreflang="x-default" href={new URL(Astro.url.pathname.replace('/en', '/es'), Astro.site)} />
 
 		<!-- Open Graph / Social -->
-		<meta property="og:site_name" content="Transporte Eliud" />
+		<meta property="og:site_name" content="Transfer Eliud" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
@@ -106,9 +106,7 @@ const schema = {
 
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@transporteeliud" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
+	<meta name="twitter:site" content="@transfereliud" />
 		<meta name="twitter:image" content={new URL(image, Astro.url)} />
 
 		<ClientRouter />
