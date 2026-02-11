@@ -1,0 +1,98 @@
+
+
+---
+
+import { Image } from 'astro:assets';
+import logoEliud from '@/assets/logo/logo-eliud.png';
+import flagGb from '@/assets/flags/gb.png';
+import flagEs from '@/assets/flags/es.png';
+import { t, getAlternateLanguageUrl } from '../../i18n/utils';
+
+
+
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+
+const homeUrl = `/${lang}`;
+const reservaUrl = `/${lang}/reserva`;
+const vehiculosUrl = `/${lang}/vehiculos`;
+const contactoUrl = `/${lang}/contacto`;
+
+
+const alternateUrl = getAlternateLanguageUrl(Astro.url, lang);
+
+
+
+import MenuHamburguesa from './MenuHamburguesa';
+
+const menuItems = [
+  { label: t(lang, 'nav.home'), href: homeUrl },
+  { label: t(lang, 'nav.booking'), href: reservaUrl },
+  { label: t(lang, 'nav.vehicles'), href: vehiculosUrl },
+  { label: t(lang, 'nav.contact'), href: contactoUrl },
+];
+
+const flagSrc = lang === 'es' ? flagGb.src : flagEs.src;
+---
+
+<!-- Top ContactBar -->
+<div class="bg-white border-b border-gray-200 text-sm navbar-animated">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="bg-white fixed top-0 left-0 right-0 z-50 shadow-sm navbar-animated">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+
+      <!-- Logo -->
+      <a href={homeUrl} class="flex items-center relative z-50">
+        <Image src={logoEliud} alt="Transporte Eliud" class="h-25 md:h-25 w-auto" loading="eager" />
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-8">
+
+        <a href={homeUrl} class="nav-link !text-gray-700">{t(lang, 'nav.home')}</a>
+        <a href={reservaUrl} class="nav-link !text-gray-700">{t(lang, 'nav.booking')}</a>
+        <a href={vehiculosUrl} class="nav-link !text-gray-700">{t(lang, 'nav.vehicles')}</a>
+        <a href={contactoUrl} class="nav-link !text-gray-700">{t(lang, 'nav.contact')}</a>
+
+        <!-- Language Switch -->
+        <div class="flex items-center gap-2 border-l pl-4">
+          {lang === 'es' ? (
+            <a href={alternateUrl} class="hover:opacity-80 transition opacity-100">
+               <Image src={flagGb} alt="English" class="w-6 h-4 rounded" />
+            </a>
+          ) : (
+            <a href={alternateUrl} class="hover:opacity-80 transition opacity-100">
+               <Image src={flagEs} alt="Español" class="w-6 h-4 rounded" />
+            </a>
+          )}
+        </div>
+
+      </div>
+
+      <!-- Mobile Menu Button (Componente React) -->
+      <MenuHamburguesa 
+        client:load 
+        items={menuItems} 
+        lang={lang} 
+        alternateUrl={alternateUrl} 
+        currentLang={lang}
+        flagSrc={flagSrc}
+        logoSrc={logoEliud.src}
+      />
+
+    </div>
+  </div>
+</nav>

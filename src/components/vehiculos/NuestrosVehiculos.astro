@@ -1,0 +1,132 @@
+---
+import { Image } from 'astro:assets';
+import circuloVerde from '@/assets/buseta/circulo-verde.png';
+import imgHiace from '@/assets/microbuses/toyta-hiace.png';
+import imgH1 from '@/assets/microbuses/h1-hyundai.png';
+import imgStaria from '@/assets/microbuses/staria-hyundai.png';
+import imgMaxus from '@/assets/microbuses/maxus-v80.png';
+import { t } from '../../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<section class="relative py-16 bg-gray-50 overflow-hidden">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Grid de vehículos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-30">
+      
+      <!-- Vehículo 1: Toyota Hiace -->
+      <div class="mx-auto max-w-md lg:max-w-none">
+        <div class="relative group cursor-pointer">
+          <Image src={circuloVerde} alt="" class="w-full h-auto" width={400} height={400} widths={[300, 400]} format="avif" />
+          <div class="absolute inset-0 flex items-center justify-center -m-9 -ml-23">
+            <Image src={imgHiace} alt="Toyota Hiace" class="w-full h-auto object-contain transition-transform duration-300 group-hover:-translate-y-2 group-active:-translate-y-4" width={600} height={400} widths={[400, 600]} format="avif" />
+          </div>
+        </div>
+        <div class="mt-6 space-y-3">
+          <h3 class="text-2xl font-bold text-gray-900 text-center">Toyota Hiace</h3>
+          <div class="flex items-center gap-3 text-black justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#8BC34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M4 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M16 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 17h-2v-11a1 1 0 0 1 1 -1h14a5 7 0 0 1 5 7v5h-2m-4 0h-8" />
+              <path d="M16 5l1.5 7l4.5 0" />
+              <path d="M2 10l15 0" />
+              <path d="M7 5l0 5" />
+              <path d="M12 5l0 5" />
+            </svg>
+            <span class="text-base"><strong>{t(lang, 'vehicles.capacity')}</strong> 8 {t(lang, 'vehicles.with_luggage')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vehículo 2: Hyundai H1 -->
+      <div class="mx-auto max-w-md lg:max-w-none">
+        <div class="relative group cursor-pointer"> 
+          <Image src={circuloVerde} alt="" class="w-full h-auto" width={400} height={400} widths={[300, 400]} format="avif" />
+          <div class="absolute inset-0 flex items-center justify-center -m-9 -ml-23">
+             <Image src={imgH1} alt="Hyundai H1" class="w-full h-auto object-contain transition-transform duration-300 group-hover:-translate-y-2 group-active:-translate-y-4" width={600} height={400} widths={[400, 600]} format="avif" />
+          </div>
+        </div>
+        <div class="mt-6 space-y-3">
+          <h3 class="text-2xl font-bold text-gray-900 text-center">Hyundai H1</h3>
+          <div class="flex items-center gap-3 text-black justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#8BC34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M4 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M16 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 17h-2v-11a1 1 0 0 1 1 -1h14a5 7 0 0 1 5 7v5h-2m-4 0h-8" />
+              <path d="M16 5l1.5 7l4.5 0" />
+              <path d="M2 10l15 0" />
+              <path d="M7 5l0 5" />
+              <path d="M12 5l0 5" />
+            </svg>
+            <span class="text-base"><strong>{t(lang, 'vehicles.capacity')}</strong> 12 {t(lang, 'vehicles.with_luggage')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vehículo 3: Hyundai Staria -->
+      <div class="mx-auto max-w-md lg:max-w-none">
+        <div class="relative group cursor-pointer">
+          <Image src={circuloVerde} alt="" class="w-full h-auto" width={400} height={400} widths={[300, 400]} format="avif" />
+          <div class="absolute inset-0 flex items-center justify-center -m-2 -mr-3">
+             <Image src={imgStaria} alt="Hyundai Staria" class="w-full h-auto object-contain transition-transform duration-300 group-hover:-translate-y-2 group-active:-translate-y-4" width={600} height={400} widths={[400, 600]} format="avif" />
+          </div>
+        </div>
+        <div class="mt-6 space-y-3">
+          <h3 class="text-2xl font-bold text-gray-900 text-center">Hyundai Staria</h3>
+          <div class="flex items-center gap-3 text-black justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#8BC34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M4 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M16 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 17h-2v-11a1 1 0 0 1 1 -1h14a5 7 0 0 1 5 7v5h-2m-4 0h-8" />
+              <path d="M16 5l1.5 7l4.5 0" />
+              <path d="M2 10l15 0" />
+              <path d="M7 5l0 5" />
+              <path d="M12 5l0 5" />
+            </svg>
+            <span class="text-base"><strong>{t(lang, 'vehicles.capacity')}</strong> 10 {t(lang, 'vehicles.with_luggage')}</span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Vehículo 4: Maxus V80 -->
+      <div class="mx-auto max-w-md lg:max-w-none">
+        <div class="relative group cursor-pointer">
+          <Image src={circuloVerde} alt="" class="w-full h-auto" width={400} height={400} widths={[300, 400]} format="avif" />
+          <div class="absolute inset-0 flex items-center justify-center -m-6 -mr-3">
+             <Image src={imgMaxus} alt="Maxus V80" class="w-full h-auto object-contain transition-transform duration-300 group-hover:-translate-y-2 group-active:-translate-y-4" width={600} height={400} widths={[400, 600]} format="avif" />
+          </div>
+        </div>
+        <div class="mt-6 space-y-3">
+          <h3 class="text-2xl font-bold text-gray-900 text-center">Maxus V80</h3>
+          <div class="flex items-center gap-3 text-black justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#8BC34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M4 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M16 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 17h-2v-11a1 1 0 0 1 1 -1h14a5 7 0 0 1 5 7v5h-2m-4 0h-8" />
+              <path d="M16 5l1.5 7l4.5 0" />
+              <path d="M2 10l15 0" />
+              <path d="M7 5l0 5" />
+              <path d="M12 5l0 5" />
+            </svg>
+            <span class="text-base"><strong>{t(lang, 'vehicles.capacity')}</strong> 16 {t(lang, 'vehicles.with_luggage')}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  

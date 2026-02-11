@@ -1,0 +1,104 @@
+---
+import { Image } from 'astro:assets';
+import imgPorqueElegirnos from '@/assets/buseta/porque-elegirnos.png';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<section id="porque" class="relative bg-gray-50 overflow-hidden">
+  <!-- Background SVG -->
+  <div class="absolute top-0 left-0 w-full h-[514px] lg:w-full lg:h-full opacity-85 pointer-events-none">
+    <svg viewBox="0 0 900 600" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid slice">
+      <g transform="translate(0, 0)">
+        <path d="M0 459.7C19.9 445.7 39.7 431.8 62 431.6C84.4 431.4 109.1 444.9 129.5 441.1C149.9 437.2 165.8 415.9 183.6 402.1C201.4 388.2 221 381.7 239 371.8C257 361.9 273.4 348.6 291.4 336.3C309.4 324 328.9 312.7 340.8 295.3C352.8 278 357.1 254.7 366.8 235.7C376.4 216.7 391.4 202 404.8 184.9C418.2 167.7 430.1 148.3 433.7 127.3C437.3 106.4 432.6 84.1 435.5 62.6C438.5 41.2 449.1 20.6 459.7 0L0 0Z" fill="#8BC34A"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+
+    <!-- LEFT: Image -->
+    <div class="relative flex items-end justify-center h-[350px] lg:h-[600px] z-10 p-8 lg:p-12">
+      <Image src={imgPorqueElegirnos} alt="Transporte Eliud" class="w-full h-auto max-w-sm lg:max-w-xl drop-shadow-2xl" loading="lazy" width={800} height={600} widths={[400, 600, 800]} format="avif" />
+    </div>
+
+    <!-- RIGHT: Content -->
+    <div class="p-8 lg:p-16 xl:p-20 flex flex-col justify-center">
+      
+    
+
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+        {t(lang, 'home.why.title')}
+      </h2>
+
+      <p class="text-lg lg:text-xl text-gray-600 leading-relaxed mb-10 max-w-2xl">
+        {t(lang, 'home.why.description')}
+      </p>
+
+      <!-- Value Propositions -->
+      <div class="mb-12 space-y-4">
+        <div class="flex items-start gap-4 group">
+          <div class="w-8 h-8 bg-[#8BC34A] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg mb-1">{t(lang, 'home.why.feature1.title')}</h3>
+            <p class="text-gray-600 text-sm">{t(lang, 'home.why.feature1.desc')}</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 group">
+          <div class="w-8 h-8 bg-[#8BC34A] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg mb-1">{t(lang, 'home.why.feature2.title')}</h3>
+            <p class="text-gray-600 text-sm">{t(lang, 'home.why.feature2.desc')}</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 group">
+          <div class="w-8 h-8 bg-[#8BC34A] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg mb-1">{t(lang, 'home.why.feature3.title')}</h3>
+            <p class="text-gray-600 text-sm">{t(lang, 'home.why.feature3.desc')}</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 group">
+          <div class="w-8 h-8 bg-[#8BC34A] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-lg mb-1">{t(lang, 'home.why.feature4.title')}</h3>
+            <p class="text-gray-600 text-sm">{t(lang, 'home.why.feature4.desc')}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-12"></div>
+
+      <!-- Stats Grid removed -->
+
+    </div>
+
+    </div>
+
+  </div>
+</section>

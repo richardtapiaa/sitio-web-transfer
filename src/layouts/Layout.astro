@@ -1,0 +1,144 @@
+---
+import '../styles/global.css';
+
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+
+
+
+import logoEliud from '@/assets/logo/logo-eliud.png';
+
+import { ClientRouter } from 'astro:transitions';
+import Loader from '@/components/common/Loader';
+
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+  lang?: string;
+}
+
+const { 
+	title, 
+	description = "Transporte Eliud — traslados seguros y puntuales. Reserva microbuses, buses y transporte privado para viajes y eventos. Atención personalizada y cobertura amplia.", 
+	image = logoEliud.src,
+  lang = "es"
+} = Astro.props;
+
+
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "TransportService",
+	"name": "Transporte Eliud",
+	"image": new URL(logoEliud.src, Astro.site),
+	"url": "https://transporteeliud.com",
+	"telephone": "+50640001040",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "Alajuela",
+		"addressLocality": "Alajuela",
+		"addressRegion": "Alajuela",
+		"postalCode": "20101",
+		"addressCountry": "CR"
+	},
+	"priceRange": "$$",
+	"openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": [
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday",
+			"Sunday"
+		],
+		"opens": "00:00",
+		"closes": "23:59"
+	},
+	"sameAs": [
+		"https://facebook.com/transporteeliud",
+		"https://instagram.com/transporteeliud"
+	]
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#8BC34A" />
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Transporte Eliud" />
+		<meta name="language" content={lang} />
+		<meta name="format-detection" content="telephone=yes" />
+		<meta name="referrer" content="no-referrer-when-downgrade" />
+		<link rel="shortcut icon" href={logoEliud.src} type="image/x-icon">
+		
+		<!-- Preload critical fonts -->
+		<link rel="preload" href="/node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+		
+		<!-- Dynamic SEO Props -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content="transporte, traslados, microbuses, buses, reservas, transporte privado, Costa Rica" />
+		
+		<!-- Canonical URL -->
+		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+
+		<!-- Hreflang for multilingual SEO -->
+		<link rel="alternate" hreflang="es" href={new URL(Astro.url.pathname.replace('/en', '/es'), Astro.site)} />
+		<link rel="alternate" hreflang="en" href={new URL(Astro.url.pathname.replace('/es', '/en'), Astro.site)} />
+		<link rel="alternate" hreflang="x-default" href={new URL(Astro.url.pathname.replace('/en', '/es'), Astro.site)} />
+
+		<!-- Open Graph / Social -->
+		<meta property="og:site_name" content="Transporte Eliud" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:url" content={Astro.url} />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@transporteeliud" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+		<ClientRouter />
+		
+	
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+		
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+	</head>
+	
+	<body>
+
+  <Loader client:load />
+
+  <slot />
+
+  <script src="../components/scripts/scrollPreservation.js"></script>
+
+</body>
+
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		scroll-behavior: smooth;
+		font-family: 'Montserrat', sans-serif;
+		
+	}
+</style>

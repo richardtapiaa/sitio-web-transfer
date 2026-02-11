@@ -1,0 +1,53 @@
+---
+// layout principal
+
+import Layout from "../../layouts/Layout.astro";
+
+
+import Navbar from "../../components/reserva/Navbar.astro";
+import Hero from '../../components/reserva/Hero.astro';
+import FormularioStepper from '../../components/reserva/ReservaComponents/formulario/FormularioStepper';
+import Footer from '../../components/Footer.astro';
+
+// paso 1
+import Paso1 from "../../components/reserva/ReservaComponents/pasos/Paso1.astro";
+
+
+
+
+
+// paso 2
+
+import Paso2 from "../../components/reserva/ReservaComponents/pasos/Paso2.astro";
+
+// paso 3
+
+import Paso3 from "../../components/reserva/ReservaComponents/pasos/Paso3.astro";
+
+// formulario 
+import Formulario from "../../components/reserva/Formulario.astro";
+
+
+
+
+---
+
+
+
+<Layout 
+    title="Booking | Eliud Transport"
+    description="Easy booking for airport transfers, hotels and tours. Immediate quote and secure confirmation."
+    lang="en"
+>
+
+<Navbar lang="en" />
+<Hero lang="en" />
+
+<Paso1 lang="en" />
+<Paso2 lang="en" />
+<Paso3 lang="en" />   
+
+
+<Formulario lang="en" />
+<Footer lang="en" />
+</Layout>

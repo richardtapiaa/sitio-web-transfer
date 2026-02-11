@@ -1,0 +1,46 @@
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('astro:page-load', () => {
+    const textLines = document.querySelectorAll(".background-text__item");
+
+    if (textLines.length > 0) {
+      
+      let ctx = gsap.context(() => {
+        const textLineAnim = gsap.timeline({
+          defaults: {
+            duration: 1,
+            ease: 'none'
+          },  
+          scrollTrigger: {
+            trigger: ".background-text__item",
+            start: "top bottom",
+            end: "bottom+=280 top",
+            scrub: 0.5
+          }
+        })
+
+        textLineAnim
+        .fromTo(textLines, {
+          x: (index: number) => index % 2 ? window.innerWidth : -window.innerWidth
+        }, {
+          x: 0
+        }, 0)
+        .fromTo(textLines, {
+          x: 0
+        }, {
+          x: (index: number) => index % 2 ? -window.innerWidth : window.innerWidth,
+          immediateRender: false
+        }, 2) 
+      }); 
+
+      
+      document.addEventListener('astro:before-swap', () => {
+        ctx.revert();
+      }, { once: true });
+    }
+  });
+</script>

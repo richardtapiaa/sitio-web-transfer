@@ -1,0 +1,19 @@
+/* Custom styles for the DatePicker component */
+.rdp {
+  --rdp-accent: #6CB82F;
+}
+
+.animate-slideIn {
+  animation: slideIn 160ms ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ensure popup has rounded corners and proper z-index when used inside components */
+.datepicker-popup {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}

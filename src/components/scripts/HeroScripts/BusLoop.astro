@@ -1,0 +1,105 @@
+<script>
+
+  import { gsap } from "gsap";
+
+  
+  document.addEventListener('astro:page-load', () => {
+    const bus = document.querySelector(".bus-loop");
+
+    if (bus) {
+      
+      gsap.killTweensOf(bus);
+
+      
+      gsap.set(bus, { x: "150vw", opacity: 0 });
+
+      // Animación de entrada inicial
+      const initialEntry = gsap.timeline();
+      
+      initialEntry
+        // Fade in rápido
+        .to(bus, {
+          duration: 0.1,
+          opacity: 1
+        })
+        // Entra desde la derecha a su posición
+        .to(bus, {
+          duration: 0.8,
+          x: 0,
+          ease: "power2.out"
+        })
+        
+        .to(bus, {
+          duration: 1.1,
+          x: 0
+        });
+
+      // Timeline principal que se repetirá
+      const createLoop = (includeInitialPause = false) => {
+        const tl = gsap.timeline();
+        
+        // Solo incluir pausa inicial si no es la primera vez
+        if (includeInitialPause) {
+          tl.to(bus, { 
+            duration: 1, 
+            x: 0 
+          });
+        }
+
+        tl.to(bus, {
+            duration: 0.6,
+            x: "-150vw",
+            ease: "power2.inOut"
+          })
+          .set(bus, {
+            x: "150vw",
+            opacity: 0
+          })
+          .to(bus, {
+            duration: 0.1,
+            opacity: 1
+          })
+          .to(bus, {
+            duration: 0.7,
+            x: 0,
+            ease: "power2.out"
+          });
+
+        return tl;
+      };
+
+      // Cuando termina la entrada inicial, iniciar el loop
+      initialEntry.eventCallback("onComplete", () => {
+        const firstLoop = createLoop(false);
+        
+       
+        firstLoop.eventCallback("onComplete", () => {
+          const mainLoop = gsap.timeline({ repeat: -1 });
+          mainLoop.add(createLoop(true));
+          
+          // Pausar cuando la pestaña no está activa
+          const visibilityHandler = () => {
+            if (document.hidden) {
+              mainLoop.pause();
+            } else {
+              mainLoop.resume();
+            }
+          };
+          
+          document.addEventListener("visibilitychange", visibilityHandler);
+
+       
+          document.addEventListener('astro:before-swap', () => {
+             document.removeEventListener("visibilitychange", visibilityHandler);
+             mainLoop.kill();
+             initialEntry.kill();
+             firstLoop.kill();
+          }, { once: true });
+        });
+      });
+    }
+  });
+
+
+
+</script>

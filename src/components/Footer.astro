@@ -1,0 +1,109 @@
+---
+import { Image } from 'astro:assets';
+import logoEliud from '@/assets/logo/logo-eliud.png';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#8BC34A] text-white pt-16 pb-8 font-sans mt-auto">
+  
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+    
+    <!-- Top Section: Logo & Tagline -->
+    <div class="mb-12">
+      <a href={`/${lang}`} class="inline-flex items-center gap-4 mb-4">
+        <div class="bg-white p-2 rounded-lg shadow-sm inline-block">
+          <Image src={logoEliud} alt="Transporte Eliud" class="h-16 w-auto object-contain" />
+        </div>
+        <span class="text-2xl font-bold text-white">Transfer Eliud</span>
+      </a>
+      <p class="text-white/90 text-sm leading-relaxed max-w-md">
+        {t(lang, 'footer.description')}
+      </p>
+    </div>
+
+    <!-- Divider -->
+    <div class="w-full h-0.5 bg-white/50 mb-12"></div>
+
+  
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+      
+      <!-- Column 1: Explorar (Navigation) - Spans 4 cols -->
+      <div class="lg:col-span-4">
+        <h3 class="text-xl font-bold mb-6 text-white">{t(lang, 'footer.company')}</h3>
+        <div class="grid grid-cols-2 gap-4">
+            <ul class="space-y-3">
+                <li><a href={`/${lang}`} class="text-white/80 hover:text-white transition-colors">{t(lang, 'nav.home')}</a></li>
+                <li><a href={`/${lang}/#sobrenosotros`} class="text-white/80 hover:text-white transition-colors">{t(lang, 'footer.about')}</a></li>
+            <ul class="space-y-3">
+                 <li><a href={`/${lang}/contacto`} class="text-white/80 hover:text-white transition-colors">{t(lang, 'nav.contact')}</a></li>
+                 <li><a href={`/${lang}/reserva`} class="text-white/80 hover:text-white transition-colors">{t(lang, 'footer.btn.book')}</a></li>
+            </ul>
+        </div>
+      </div>
+
+      <!-- Column 2: Contacto - Spans 4 cols -->
+      <div class="lg:col-span-4">
+        <h3 class="text-xl font-bold mb-6 text-white">{t(lang, 'footer.contact')}</h3>
+        <div class="space-y-6">
+            <!-- Email -->
+            <div class="flex items-start gap-4">
+                <div class="mt-1">
+                    <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div class="border-l-2 border-white/50 pl-4">
+                    <span class="block text-xs text-white/80 uppercase tracking-wider mb-0.5">Correo</span>
+                    <a href="mailto:transfereliud@gmail.com" class="text-white hover:text-white/90 transition-colors text-lg font-medium break-all">
+                        transfereliud@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-start gap-4">
+                 <div class="mt-1">
+                    <svg class="w-6 h-6 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                </div>
+                <div class="border-l-2 border-white/50 pl-4">
+                    <span class="block text-xs text-white/80 uppercase tracking-wider mb-0.5">Teléfono & WhatsApp</span>
+                    <a href="tel:+50684128671" class="block text-white hover:text-white/90 transition-colors text-lg font-medium">
+                        +506 8412-8671
+                    </a>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Ubicación & Socials - Spans 4 cols -->
+      <div class="lg:col-span-4">
+         <h3 class="text-xl font-bold mb-6 text-white">{t(lang, 'contact.title')}</h3>
+         
+         <div class="flex items-start gap-4 mb-8">
+            <div class="mt-1">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div class="border-l-2 border-white/50 pl-4">
+                 <p class="text-white/90 leading-relaxed">
+                    Quepos, Costa Rica.<br/>
+                    Servicio en todo el país.
+                 </p>
+            </div>
+         </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t-2 border-white/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/80">
+      <p>
+        © {currentYear} Transporte Eliud. {t(lang, 'footer.rights')}
+      </p>
+    </div>
+  </div>
+</footer>

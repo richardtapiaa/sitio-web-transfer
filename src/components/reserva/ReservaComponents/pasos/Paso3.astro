@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets';
+import imgDetalles from '@/assets/pasos/detalles.png';
+import { t } from '../../../../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+<section class="relative bg-transparent overflow-visible z-20">
+  <!-- Background SVG (Flipped to Left) -->
+  <div class="absolute top-0 left-0 w-full h-1/2 lg:w-4/5 lg:h-[150%] opacity-85 pointer-events-none transform -scale-x-100">
+    <svg viewBox="0 0 850 600" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid slice">
+      <g transform="translate(850, 0) scale(1.1)">
+        <path d="M0 459.7C-19.9 445.7 -39.7 431.8 -62 431.6C-84.4 431.4 -109.1 444.9 -129.5 441.1C-149.9 437.2 -165.8 415.9 -183.6 402.1C-201.4 388.2 -221 381.7 -239 371.8C-257 361.9 -273.4 348.6 -291.4 336.3C-309.4 324 -328.9 312.7 -340.8 295.3C-352.8 278 -357.1 254.7 -366.8 235.7C-376.4 216.7 -391.4 202 -404.8 184.9C-418.2 167.7 -430.1 148.3 -433.7 127.3C-437.3 106.4 -432.6 84.1 -435.5 62.6C-438.5 41.2 -449.1 20.6 -459.7 0L0 0Z" fill="#8BC34A"/>
+      </g>
+    </svg>
+  </div>
+
+
+  
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-24 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+
+
+      <div class="relative flex items-center justify-center h-[400px] lg:h-[500px] order-1 lg:order-1 lg:justify-start lg:pl-4 xl:pl-8 z-30 lg:z-10">
+        <Image src={imgDetalles} alt="Paso 3: Detalles" class="w-full h-auto max-w-[280px] sm:max-w-sm lg:max-w-md" loading="lazy" width={800} height={800} widths={[400, 600, 800]} format="avif" />
+      </div>
+
+      <!-- Contenido a la derecha (información del Paso 3) -->
+      <div class="order-2 lg:order-2">
+
+        <h3 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">{t(lang, 'reserva.paso3.title')}</h3>
+
+        <div class="mb-8">
+          <p class="text-lg text-gray-600 max-w-xl leading-relaxed">
+            {t(lang, 'reserva.paso3.desc')}
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-200">
+          <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#8BC34A]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+            </svg>
+            {t(lang, 'reserva.paso3.infoTitle')}
+          </h4>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-3">
+              <span class="text-[#8BC34A] font-bold mt-0.5">•</span>
+              <span>{t(lang, 'reserva.paso3.item1')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#8BC34A] font-bold mt-0.5">•</span>
+              <span>{t(lang, 'reserva.paso3.item2')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#8BC34A] font-bold mt-0.5">•</span>
+              <span>{t(lang, 'reserva.paso3.item4')}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

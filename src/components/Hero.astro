@@ -1,0 +1,94 @@
+---
+
+import BusLoop from "./scripts/HeroScripts/BusLoop.astro";
+import { Image } from 'astro:assets';
+import imgCirculo from '@/assets/buseta/circulo-verde.png';
+import imgBuseta from '@/assets/buseta/eliud-buseta.png';
+import heroInicio from '@/assets/heros/hero-inicio.webp';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang?: string;
+  
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<section id="inicio" class="relative h-[95vh] w-full overflow-hidden rounded-b-[3rem]">
+  
+ 
+  <link rel="preload" as="image" href={heroInicio.src} fetchpriority="high">
+  <div 
+    class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" 
+    style={`background-image: url('${heroInicio.src}');`}
+  >
+  </div>
+  
+
+  <div class="absolute inset-0 bg-black/40 z-[5]"></div>
+
+  <!-- Elemento decorativo: círculo y buseta -->
+  <div class="absolute inset-0 z-[6] pointer-events-none translate-x-[10%] md:translate-x-[14%] lg:translate-x-[20%]">
+    <!-- Círculo de fondo -->
+    <div class="absolute right-[-5%] bottom-[3%] md:right-[15%] md:bottom-[8%] w-[280px] md:w-[550px] lg:w-[650px]">
+      <Image 
+        src={imgCirculo} 
+        alt="decoracion de un circulo de color verde" 
+        class="w-full"
+        loading="eager"
+        width={650}
+        height={650}
+        widths={[300, 550, 650]}
+        format="webp"
+      />
+    </div>
+    
+    <!-- Imagen de la buseta -->
+    <div class="bus-loop absolute left-[54%] transform -translate-x-1/2 bottom-[2%] w-[360px] sm:left-[56%] sm:w-[460px] sm:bottom-[4%] md:left-auto md:right-[10%] md:translate-x-0 md:bottom-[4%] lg:right-[16%] lg:bottom-[-4%] md:w-[750px] lg:w-[1050px]">
+      <Image 
+        src={imgBuseta} 
+        alt="decoracion de un bus verde con logos de Transporte Eliud" 
+        class="w-full"
+        loading="eager"
+        width={1050}
+        height={600}
+        widths={[360, 460, 750, 1050]}
+        format="webp"
+      />
+    </div>
+  </div>
+  
+  <!-- Contenido del Hero -->
+  <div class="relative z-10 h-full flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-2xl pt-0 md:pt-16 lg:pt-20 pb-12 md:pb-0 transform -translate-y-6 sm:translate-y-0">
+
+
+        <h1 class="mb-8 animate-fade-in text-left">
+          <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white/80 tracking-wide mb-2">Transfer</span>
+          <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black bg-gradient-to-br from-[#CFFFB3] via-[#8CCF4A] to-[#6CB82F] bg-clip-text text-transparent tracking-tighter leading-none drop-shadow-[0_4px_20px_rgba(139,195,74,0.4)]" style="text-shadow: 0 0 40px rgba(139,195,74,0.3);">
+            Eliud
+          </span>
+          </h1>
+        
+        <p class="text-xl sm:text-2xl md:text-3xl text-white/90 mb-8 animate-fade-in-delay font-normal drop-shadow-lg text-left leading-snug">
+          {t(lang, 'home.hero.subtitle')} <span class="text-[#CFFFB3] font-bold">{t(lang, 'home.hero.costarica')}</span>
+        </p>
+        
+        
+        <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-2">
+          <a
+            href={`/${lang}/reserva`}
+            class="inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 bg-[#6CB82F] hover:bg-[#5da526] text-white font-semibold text-sm sm:text-base rounded-md sm:rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg z-20"
+          >
+            {t(lang, 'home.hero.btn')}
+          </a>
+        </div>
+
+      </div>  
+    </div>
+  </div>
+</section>
+
+<BusLoop />

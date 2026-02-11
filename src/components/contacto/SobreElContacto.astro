@@ -1,0 +1,91 @@
+---
+import FormularioContacto from "./ContactoComponents/FormularioDeContacto.tsx";
+import { Image } from 'astro:assets';
+import imgContactanos from '@/assets/pasos/contactanos.png';
+import { t } from '../../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+  <!-- Background SVG (Flipped to Left) - Solo móvil -->
+  <div class="lg:hidden absolute top-1 left-1/2 -translate-x-1/2 w-[640px] sm:w-[780px] md:w-[980px] h-[520px] opacity-85 pointer-events-none transform -scale-x-100">
+    <svg viewBox="0 0 850 600" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid slice">
+      <g transform="translate(850, 0) scale(1.1)">
+        <path d="M0 459.7C-19.9 445.7 -39.7 431.8 -62 431.6C-84.4 431.4 -109.1 444.9 -129.5 441.1C-149.9 437.2 -165.8 415.9 -183.6 402.1C-201.4 388.2 -221 381.7 -239 371.8C-257 361.9 -273.4 348.6 -291.4 336.3C-309.4 324 -328.9 312.7 -340.8 295.3C-352.8 278 -357.1 254.7 -366.8 235.7C-376.4 216.7 -391.4 202 -404.8 184.9C-418.2 167.7 -430.1 148.3 -433.7 127.3C-437.3 106.4 -432.6 84.1 -435.5 62.6C-438.5 41.2 -449.1 20.6 -459.7 0L0 0Z" fill="#8BC34A"/>
+      </g>
+    </svg>
+  </div>
+
+
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative z-10">
+    
+    <!-- Imagen decorativa (visible en móvil, posicionada absolutamente en desktop) -->
+    <div class="relative flex items-center justify-center h-[300px] mb-12 lg:hidden">
+      <Image 
+        src={imgContactanos} 
+        alt="Contacto" 
+        class="w-full h-auto max-w-xs object-contain"
+        width={800}
+        height={600}
+        widths={[300, 400, 600, 800]}
+        format="avif"
+      />
+    </div>
+
+
+
+    <!-- Grid principal: contenido | formulario -->
+    <div class="grid gap-12 lg:gap-16 items-start grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] relative z-10">
+
+      <!-- CONTENIDO (izquierda del grid) -->
+      <div class="order-1 lg:order-1">
+        <div class="w-full">
+          <!-- Información principal -->
+          <div>
+
+
+
+            <div class="space-y-8 text-gray-600 leading-relaxed max-w-2xl">
+              <p class="text-lg lg:text-xl">
+                {t(lang, 'contact.about.p1')} 
+                <span class="font-semibold text-gray-900">
+                  {t(lang, 'contact.about.p1.bold')}
+                </span> {t(lang, 'contact.about.p1.rest')}
+              </p>
+              <p class="text-lg lg:text-xl">
+                {t(lang, 'contact.about.p2')}
+              </p>
+            </div>
+
+              <div class="mt-8 space-y-6 text-gray-700 max-w-lg">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                <strong class="w-32 text-lg lg:text-xl shrink-0">{t(lang, 'contact.phone')}</strong>
+                <a href="tel:+50684128671" class="text-lg lg:text-xl text-[#8BC34A] font-medium">+506 8412-8671</a>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                <strong class="w-32 text-lg lg:text-xl shrink-0">{t(lang, 'contact.email')}</strong>
+                <a href="mailto:transfereliud@gmail.com" class="text-lg lg:text-xl text-[#8BC34A] font-medium break-all">transfereliud@gmail.com</a>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                <strong class="w-32 text-lg lg:text-xl shrink-0">{t(lang, 'contact.schedule')}</strong>
+                <span class="text-lg lg:text-xl text-gray-600">{t(lang, 'contact.schedule.time')}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- FORMULARIO (derecha) -->
+      <div class="order-2 lg:order-2 lg:pl-12 xl:pl-20">
+        <FormularioContacto client:visible lang={lang} />
+      </div>
+    </div>
+  </div>
+</section>

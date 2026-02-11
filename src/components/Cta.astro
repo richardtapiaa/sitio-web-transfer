@@ -1,0 +1,59 @@
+---
+import TextAnimation from './scripts/CtaScripts/TextAnimation.astro';
+import ParallaxCta from './scripts/CtaScripts/ParallaxCta.astro';
+import { t } from '../i18n/utils';
+import { Image } from 'astro:assets';
+import ctaBg from '@/assets/cta/cta.webp';
+
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<section class="cta-section relative h-[70vh] min-h-[500px] w-full overflow-hidden flex items-center justify-center">
+
+  <div class="absolute inset-0 z-0 cta-background">
+    <Image
+      src={ctaBg}
+      alt="CTA"
+      class="w-full h-full object-center object-cover"
+      loading="eager"
+      width={1920}
+      height={1280}
+      widths={[375,640,820,1024,1365,1600,1920]}
+      format="webp"
+      quality={90}
+    />
+    <!-- overlay (lighter on desktop so image stays visible) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-black/15 to-black/30 pointer-events-none"></div>
+  </div>
+
+  <!-- animacion de texto -->
+  <div class="absolute inset-0 z-[5] flex flex-col justify-center md:justify-center items-center overflow-hidden pointer-events-none gap-2 md:gap-4 px-4 pb-48 md:pb-40">
+    <div class="background-text__item text-[8vw] sm:text-[10vw] md:text-[12vw] font-black text-center">
+      {t(lang, 'home.cta.line1')}
+    </div>
+    <div class="background-text__item text-[8vw] sm:text-[10vw] md:text-[12vw] font-black text-center">
+        {t(lang, 'home.cta.line2')}
+    </div>
+    <!-- CTA Button -->
+    <a 
+      href={`/${lang}/reserva`}
+      class="cta-button pointer-events-auto inline-flex items-center gap-2 md:gap-3 bg-[#6CB82F] hover:bg-[#5da526] backdrop-blur-sm text-white font-semibold px-6 py-3 md:px-10 md:py-5 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 text-base md:text-xl group z-10 mt-2 md:mt-4"
+    >
+      <span>{t(lang, 'home.cta.btn')}</span>
+      <svg class="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </a>
+  </div>
+
+ 
+</section>
+
+
+<TextAnimation />
+<ParallaxCta />

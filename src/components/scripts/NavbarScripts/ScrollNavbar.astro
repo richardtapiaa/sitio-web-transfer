@@ -1,0 +1,38 @@
+
+
+
+<script>
+
+     // Función para manejar el scroll
+  function handleScroll() {
+    const nav = document.getElementById('main-nav');
+    const topBar = document.getElementById('top-bar');
+    const heroSection = document.getElementById('inicio');
+    
+    if (!nav || !heroSection) return;
+
+    // Obtener la altura del Hero
+    const heroHeight = heroSection.offsetHeight;
+    const scrollPosition = window.scrollY;
+
+    // Si el usuario ha hecho scroll más allá del 20% del Hero
+    if (scrollPosition > heroHeight * 0.2) {
+      nav.classList.add('scrolled');
+      if (topBar) {
+        topBar.classList.add('visible');
+      }
+    } else {
+      nav.classList.remove('scrolled');
+      if (topBar) {
+        topBar.classList.remove('visible');
+      }
+    }
+  }
+
+  // Ejecutar al cargar la página
+  document.addEventListener('DOMContentLoaded', handleScroll);
+
+  // Ejecutar al hacer scroll
+  window.addEventListener('scroll', handleScroll);
+  
+</script>

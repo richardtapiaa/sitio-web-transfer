@@ -1,0 +1,56 @@
+---
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<section id="sobrenosotros" class="relative bg-gray-50 overflow-hidden">
+  <!-- Background SVG -->
+  <div class="absolute top-0 right-0 w-full h-1/2 lg:w-4/5 lg:h-full opacity-85 pointer-events-none">
+    <svg viewBox="0 0 900 600" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid slice">
+      <g transform="translate(900, 0)">
+        <path d="M0 459.7C-19.9 445.7 -39.7 431.8 -62 431.6C-84.4 431.4 -109.1 444.9 -129.5 441.1C-149.9 437.2 -165.8 415.9 -183.6 402.1C-201.4 388.2 -221 381.7 -239 371.8C-257 361.9 -273.4 348.6 -291.4 336.3C-309.4 324 -328.9 312.7 -340.8 295.3C-352.8 278 -357.1 254.7 -366.8 235.7C-376.4 216.7 -391.4 202 -404.8 184.9C-418.2 167.7 -430.1 148.3 -433.7 127.3C-437.3 106.4 -432.6 84.1 -435.5 62.6C-438.5 41.2 -449.1 20.6 -459.7 0L0 0Z" fill="#8BC34A"/>
+      </g>  
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-24 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+      <!-- SVG -->
+      <div class="relative flex items-center justify-center h-[400px] lg:h-[600px] lg:order-2">
+        <img src="/bus.svg" alt="Bus" class="w-full h-auto max-w-md lg:max-w-2xl" loading="lazy" width="800" height="600" />
+      </div>
+
+      <!-- CONTENIDO -->
+      <div class="lg:order-1">
+
+        <!-- Título -->
+        <h2 class="text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-8">
+          {t(lang, 'home.about.title')}
+        </h2>
+
+         
+
+        <!-- Texto -->
+        <div class="space-y-8 text-gray-600 leading-relaxed max-w-2xl">
+          <p class="text-xl lg:text-2xl">
+            {t(lang, 'home.about.p1')} <span class="font-semibold text-gray-900">{t(lang, 'home.about.p1.bold')}</span>{t(lang, 'home.about.p1.rest')} <span class="font-semibold text-gray-900">{t(lang, 'home.about.p1.bold2')}</span>{t(lang, 'home.about.p1.end')}
+          </p>
+
+          <p class="text-xl lg:text-2xl">
+            {t(lang, 'home.about.p2')} <span class="font-semibold text-gray-900">{t(lang, 'home.about.p2.bold')}</span> {t(lang, 'home.about.p2.rest')}
+          </p>
+        </div>
+
+   
+
+
+   
+    </div>
+  </div>
+</section>

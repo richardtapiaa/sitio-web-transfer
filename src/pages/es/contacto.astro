@@ -1,0 +1,37 @@
+---
+
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/reserva/Navbar.astro";
+import Hero from "../../components/contacto/Hero.astro";
+
+import SobreElContacto from "../../components/contacto/SobreElContacto.astro";
+
+import Ubicanos from "../../components/contacto/Ubicanos.astro";
+
+import Footer from "../../components/Footer.astro";
+
+---
+
+<Layout 
+    title="Contacto | Transporte Eliud"
+    description="Contáctanos para reservar tu transporte en Costa Rica. Atención personalizada por WhatsApp, correo o teléfono."
+    image="/pasos/contactanos.png"
+    lang="es"
+>
+    <Navbar lang="es" />
+    <Hero lang="es" />
+    <SobreElContacto lang="es" />
+    <Ubicanos lang="es" />
+    <Footer lang="es" />
+       
+        <a href="https://wa.me/50684128671?text=Hola%20Transfer%20eliud%20quiero%20saber%20un%20poco%20mas%20de%20informacion%20sobre%20ustedes%20y%20sus%20servicios" target="_blank" rel="noopener noreferrer nofollow" aria-label="Contactar por WhatsApp +506 8412 8671" class="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 z-50">
+            <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#8BC34A] flex items-center justify-center shadow-xl transform transition-transform hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp" aria-hidden="true">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                    <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                </svg>
+            </div>
+        </a
+        
+</Layout>

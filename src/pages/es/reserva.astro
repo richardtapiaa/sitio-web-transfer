@@ -1,0 +1,51 @@
+---
+// layout principal
+
+import Layout from "../../layouts/Layout.astro";
+
+
+import Navbar from "../../components/reserva/Navbar.astro";
+import Hero from "../../components/reserva/Hero.astro";
+
+// paso 1
+import Paso1 from "../../components/reserva/ReservaComponents/pasos/Paso1.astro";
+
+
+
+
+
+// paso 2
+
+import Paso2 from "../../components/reserva/ReservaComponents/pasos/Paso2.astro";
+
+// paso 3
+
+import Paso3 from "../../components/reserva/ReservaComponents/pasos/Paso3.astro";
+
+// formulario 
+import Formulario from "../../components/reserva/Formulario.astro";
+
+
+import Footer from "../../components/Footer.astro";
+
+---
+
+
+
+<Layout 
+    title="Reserva tu Transporte | Transporte Eliud"
+    description="Reserva fácil de traslados al aeropuerto, hoteles y tours. Cotización inmediata y confirmación segura."
+    lang="es"
+>
+
+<Navbar lang="es" />
+<Hero lang="es" />
+
+<Paso1 lang="es" />
+<Paso2 lang="es" />
+<Paso3 lang="es" />   
+
+
+<Formulario lang="es" />
+<Footer lang="es" />
+</Layout>
