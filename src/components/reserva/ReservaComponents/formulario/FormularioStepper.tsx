@@ -93,8 +93,8 @@ export default function FormularioStepper({ lang }: FormularioStepperProps) {
 
 
     try {
-      // Combinar fecha y hora en formato ISO
-      const fechaHoraServicio = `${datosFormulario.fecha}T${datosFormulario.hora}:00`
+      // Combinar fecha y hora en formato ISO con zona horaria de Costa Rica (UTC-6)
+      const fechaHoraServicio = `${datosFormulario.fecha}T${datosFormulario.hora}:00-06:00`
 
       const payload = {
         nombre: datosFormulario.nombre,
