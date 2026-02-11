@@ -8,7 +8,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: 'https://transporteeliud.com',
+  site: 'https://transfer-eliud.com',
   vite: {
     plugins: [tailwindcss()],
   },
