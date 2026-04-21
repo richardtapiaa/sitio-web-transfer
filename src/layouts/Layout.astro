@@ -27,7 +27,7 @@ const {
 
 const schema = {
 	"@context": "https://schema.org",
-	"@type": "TransportService",
+	"@type": ["TransportService", "LocalBusiness"],
 	"name": "Transfer Eliud",
 	"alternateName": "Transfer Eliud Costa Rica",
 	"description": "Servicio de transporte privado en Quepos, Costa Rica.",
@@ -44,9 +44,21 @@ const schema = {
 		"postalCode": "60601",
 		"addressCountry": "CR"
 	},
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "9.4328",
+		"longitude": "-84.1638"
+	},
 	"areaServed": {
 		"@type": "Country",
 		"name": "Costa Rica"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5.0",
+		"reviewCount": "45",
+		"bestRating": "5",
+		"worstRating": "1"
 	},
 	"priceRange": "$$",
 	"openingHoursSpecification": {
@@ -65,7 +77,8 @@ const schema = {
 	},
 	"sameAs": [
 		"https://facebook.com/transfereliud",
-		"https://instagram.com/transfereliud"
+		"https://instagram.com/transfereliud",
+		"https://www.google.com/maps/place/?q=place_id:ChIJjQK99phzoY8RzJG2XaVnvI0"
 	]
 };
 ---
