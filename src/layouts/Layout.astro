@@ -82,25 +82,25 @@ const schema = {
 		<meta name="format-detection" content="telephone=yes" />
 		<meta name="referrer" content="no-referrer-when-downgrade" />
 		
-		<!-- Favicons -->
+	
 		<link rel="icon" type="image/png" sizes="32x32" href="/logo-eliud.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/logo-eliud.png" />
 		<link rel="shortcut icon" href="/logo-eliud.png" type="image/png" />
 		<link rel="apple-touch-icon" href="/logo-eliud.png" />
 		
-		<!-- Preload critical fonts -->
+	
 		<link rel="preload" href="/node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 		
-		<!-- Dynamic SEO Props -->
+
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="keywords" content="transfer eliud, transporte costa rica, traslados costa rica, transfer costa rica, microbuses costa rica, buses privados, transporte privado costa rica, reservas transporte, transfer aeropuerto costa rica, traslados turísticos" />
 		
-		<!-- Canonical URL -->
+	
 		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 
-		<!-- Hreflang for multilingual SEO -->
+		
 		<link rel="alternate" hreflang="es" href={new URL(Astro.url.pathname.replace('/en', '/es'), Astro.site)} />
 		<link rel="alternate" hreflang="en" href={new URL(Astro.url.pathname.replace('/es', '/en'), Astro.site)} />
 		<link rel="alternate" hreflang="x-default" href={new URL(Astro.url.pathname.replace('/en', '/es'), Astro.site)} />
